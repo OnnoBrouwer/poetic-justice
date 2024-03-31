@@ -1,0 +1,5 @@
+git clone https://github.com/OnnoBrouwer/poetic-justice.git
+cd poetic-justice
+IMAGE="node:latest"
+docker run --rm --name compiler --entrypoint bash -v .:/poetic-justice $IMAGE /poetic-justice/build-html.sh
+zip -j poetic-justice.zip out/html/*

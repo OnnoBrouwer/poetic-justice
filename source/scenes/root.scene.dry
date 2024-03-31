@@ -1,0 +1,1857 @@
+# init - initialize variables
+title: init
+new-page: true
+on-arrival: {!
+    Q.names = ["Bashō", "Sappho", "Milton", "Tagore", "Khayyam"]; // Poet names
+    Q.prons = ["he","she","he","he","he"]; // Poet pronouns
+    Q.posss = ["his","her","his","his","his"]; // Poet possessives
+    Q.pres = 0; // Bashō for president!
+    Q.refs = [0,0,0,0,0]; // Poet evidences refuted
+    Q.ref = 0; // Poet refutal attempted
+    Q.refn = 0; // Number of poet refutals
+    Q.pname = ""; // Name of the president
+    Q.ppron = ""; // Pronoun of the president
+    Q.pposs = ""; // Possessive of the president
+    Q.aname = ""; // Name of the accuser
+    Q.dname = ""; // Name of the defender
+    Q.ca = [0,0,0,0,0]; // context -> accuser / critic / none
+    Q.ac = [0,0,0,0,0]; // accuser -> context / none
+    Q.ad = [0,0,0,0,0]; // accuser -> defender / none
+    Q.da = [0,0,0,0,0]; // defender -> accuser / none
+    Q.na = 0; // Number of accusing poets
+    Q.ma = 0; // Number of accusing poets in the previous round
+    Q.c = 0; // context
+    Q.a = 0; // accuser
+    Q.d = 0; // defender
+    Q.f = 0; // fighting (0:no)(1:yes)
+    Q.sub = ["","View","View","View","View"];
+    Q.votes = ["","one more vote","two more votes","three more votes","four votes"];
+    Q.hour = ["The hour has hardly begun", "One quarter of the hour has passed", "Two quarters of the hour have passed", "Three quarters of the hour have passed", "The hour has passed, and the time of judgment is upon us"];
+    Q.timer = ["", "sundial", "mechanical clock", "water clock", "astrolabe"];
+    Q.comm = 0; // commenter (anyone except the president) offset by -1
+    Q.reason = 0;
+    Q.cname = "";
+    Q.rmsg = "";
+    Q.reasons = [
+        [],
+        ["Cloud cover", "A solar eclipse","Misalignment","Solar flares"],
+        ["Misaligned gears","Shifting gears","Overwound spring","Broken pendulum"],
+        ["Water pollution","Dry season","Clogged channels","Leaks"],
+        ["Operator error","Inaccurate calibration","Celestial interference","Damaged components"],
+    ];
+!}
+go-to: menu
+
+#######################################################################################
+
+# menu - main menu
+@menu
+
+= Poetic Justice
+
+- @temple: Start game
+- @credits: Credits
+
+#######################################################################################
+
+# credits - credits due
+@credits
+
+> Written by Onno Brouwer for {!<a href="https://itch.io/jam/seedcomp24-sprouting-round" target="_blank">SeedComp 2024</a>!}.
+
+> Coded using {!<a href="https://github.com/aucchen/dendry" target="_blank">dendry</a>!}, originally by Ian Millington with heavy modifications from Autumn Chen.
+
+= Acknowledgments
+
+> Sprouted off the {!<a href="https://rovarsson.itch.io/poetic-justice" target="_blank">Poetic Justice</a>!} seed planted by Rovarsson.
+
+> Many thanks to Autumn Chen for her beta testing and feedback.
+
+= Text
+
+> Some of the text in this game is adapted from Wikipedia, the Free Encyclopedia. Sources are included where they appear in the game text. Language use checked by {!<a href="https://app.grammarly.com/" target="_blank">Grammarly</a>!}.
+
+> This is a work of fiction. Any resemblance to actual entities, whether living, deceased, or transcendent, or to events from their lives or literary works, is entirely coincidental.
+
+- @temple: Start game
+
+#######################################################################################
+
+# temple - temple of poetic justice - choosing the judge to preside the trial
+@temple
+new-page: true
+
+= Temple of Poetic Justice
+
+You are standing in the middle of a round hall. Reliëfs of Fortuna, Apollo, and Justitia jut forward from the marble walls. Between two massive pillars on the east side the sun is rising.
+
+The rose-fingered sunlight of dawn illuminates an oaken bench. Behind the bench your judges are seated: Sappho, Milton, Tagore, and Khayyam.
+
+They are wearing huge grey curly-haired wigs.
+
+"We understand that this situation may be unsettling for you, summoned here to stand accused before us," Sappho begins. "However, we cannot disregard intellectual theft, a crime that inflicts profound emotional distress upon us all."
+
+She continues, "We advocate for fair trials and allow you to select the judge who will preside over the trial and whom you deem most capable of understanding your case. This choice enhances the fairness and credibility of the trial proceedings."
+
+- @prof-1: Consult Sappho's profile
+- @prof-2: Consult Milton's profile
+- @prof-3: Consult Tagore's profile
+- @prof-4: Consult Khayyam's profile
+
+#######################################################################################
+
+# prof-1 - Consult Sappho's profile
+@prof-1
+new-page: true
+
+"{!<a href="https://en.wikipedia.org/wiki/Sappho" target="_blank">Sappho</a>!} (/ˈsæfoʊ/; Greek: Σαπφώ Sapphō [sap.pʰɔ̌ː]; Aeolic Greek Ψάπφω Psápphō; c. 630 – c. 570 BC) was an Archaic Greek poet from Eresos or Mytilene on the island of Lesbos. Sappho is known for her lyric poetry, written to be sung while accompanied by music. In ancient times, Sappho was widely regarded as one of the greatest lyric poets and was given names such as the "Tenth Muse" and "The Poetess".
+
+Most of Sappho's poetry is now lost, and what is extant has mostly survived in fragmentary form; only the Ode to Aphrodite is certainly complete. As well as lyric poetry, ancient commentators claimed that Sappho wrote elegiac and iambic poetry. Three epigrams formerly attributed to Sappho are extant, but these are actually Hellenistic imitations of Sappho's style."
+
+Quality: *passion and sensuality*
+
+Virtue: *capturing the essence of human emotion*
+
+Vice: *passionate nature*
+
+- @pres-1: Choose Sappho to preside the trial
+- @temple: Consult another poet's profile
+
+#######################################################################################
+
+# prof-2 - Consult Milton's profile
+@prof-2
+new-page: true
+
+"{!<a href="https://en.wikipedia.org/wiki/John_Milton" target="_blank">John Milton</a>!} (9 December 1608 – 8 November 1674) was an English poet, polemicist, and civil servant. His 1667 epic poem Paradise Lost, written in blank verse and including over ten books, was written in a time of immense religious flux and political upheaval. It addressed the fall of man, including the temptation of Adam and Eve by the fallen angel Satan and God's expulsion of them from the Garden of Eden.
+
+Paradise Lost elevated Milton's reputation as one of history's greatest poets. He also served as a civil servant for the Commonwealth of England under its Council of State and later under Oliver Cromwell."
+
+Quality: *ambition and intellectual pursuit*
+
+Virtue: *commitment to truth and justice*
+
+Vice: *uncompromising stubbornness and pride*
+
+- @pres-2: Choose Milton to preside the trial
+- @temple: Consult another poet's profile
+
+#######################################################################################
+
+# prof-3 - Consult Tagore's profile
+@prof-3
+new-page: true
+
+"{!<a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank">Rabindranath Tagore</a>!} FRAS (/rəˈbɪndrənɑːt tæˈɡɔːr/; pronounced [roˈbindɾonatʰ ˈʈʰakuɾ]; 7 May 1861 – 7 August 1941) was an Indian polymath who was active as a poet, writer, playwright, composer, philosopher, social reformer, educationist and painter during the age of Bengal Renaissance. He reshaped Bengali literature and music as well as Indian art with Contextual Modernism in the late 19th and early 20th centuries.
+
+Author of the "profoundly sensitive, fresh and beautiful" poetry of Gitanjali, he became in 1913 the first non-European and the first lyricist to win the Nobel Prize in Literature. Tagore's poetic songs were viewed as spiritual and mercurial; where his elegant prose and magical poetry were widely popular in the Indian subcontinent. He was a fellow of the Royal Asiatic Society. Referred to as "the Bard of Bengal", Tagore was known by sobriquets: Gurudeb, Kobiguru, and Biswokobi."
+
+Quality: *spirituality and introspection*
+
+Virtue: *boundless empathy and compassion*
+
+Vice: *tendency towards sentimentality*
+
+- @pres-3: Choose Tagore to preside the trial
+- @temple: Consult another poet's profile
+
+#######################################################################################
+
+# prof-4 - Consult Khayyam's profile
+@prof-4
+new-page: true
+
+"Ghiyāth al-Dīn Abū al-Fatḥ ʿUmar ibn Ibrāhīm Nīsābūrī (18 May 1048 – 4 December 1131), commonly known as {!<a href="https://en.wikipedia.org/wiki/Omar_Khayyam" target="_blank">Omar Khayyam</a>!} (Persian: عمر خیّام), was a Persian polymath, known for his contributions to mathematics, astronomy, philosophy, and poetry. He was born in Nishapur, the initial capital of the Seljuk Empire. He lived during the rule of the Seljuk dynasty, around the time of the First Crusade.
+
+There is a tradition of attributing poetry to Omar Khayyam, written in the form of quatrains (rubāʿiyāt رباعیات). This poetry became widely known to the English-reading world in a translation by Edward FitzGerald (Rubaiyat of Omar Khayyam, 1859), which enjoyed great success in the Orientalism of the fin de siècle."
+
+Quality: *contemplation and philosophical inquiry*
+
+Virtue: *profound intellect and philosophical insight*
+
+Vice: *indulgence in earthly pleasures*
+
+- @pres-4: Choose Khayyam to preside the trial
+- @temple: Consult another poet's profile
+
+#######################################################################################
+
+# pres-1 - Choose Sappho to preside the trial
+@pres-1
+new-page: true
+on-arrival: pres = 1
+
+Sappho nods solemnly and rises from her seat, her grey wig framing her face as she addresses the gathered assembly.
+
+"Thank you for your trust," she says. "Let us proceed with fairness and diligence."
+
+Turning her attention to you, she gestures towards the manuscripts laid out before them. "You have the right to defend yourself," she says, her tone measured yet firm. "Review the evidence put forth by each poet against you, and consider your response carefully."
+
+With a nod of reassurance, Sappho returns to her seat, prepared to oversee the trial with impartiality and wisdom.
+
+- #evidence
+
+#######################################################################################
+
+# pres-2 - Choose Milton to preside the trial
+@pres-2
+new-page: true
+on-arrival: pres = 2
+
+Milton rises from his seat with a dignified air, his grey wig adding to the gravitas of his presence. He clears his throat before addressing the courtroom.
+
+"Thank you for entrusting me with this responsibility," he says. "Let us commence with the trial."
+
+Turning his attention to you, he gestures towards the manuscripts laid out before them. "You have the right to defend yourself," he says, his tone measured yet firm. "Review the evidence put forth by each poet against you, and consider your response carefully."
+
+With a nod of reassurance, Milton returns to his seat, prepared to oversee the trial with impartiality and integrity.
+
+- #evidence
+
+#######################################################################################
+
+# pres-3 - Choose Tagore to preside the trial
+@pres-3
+new-page: true
+on-arrival: pres = 3
+
+Tagore rises gracefully from his seat, his grey wig lending an air of dignity to his presence. With a serene expression, he addresses the gathered audience.
+
+"I am deeply honored by your trust," he says. "Let us commence with the trial."
+
+Turning his attention to you, he gestures towards the manuscripts laid out before them. "You have the right to defend yourself," he says, his tone measured yet firm. "Review the evidence put forth by each poet against you, and consider your response carefully."
+
+With a nod of reassurance, Tagore returns to his seat, prepared to oversee the trial with wisdom and compassion.
+
+- #evidence
+
+#######################################################################################
+
+# pres-4 - Choose Khayyam to preside the trial
+@pres-4
+new-page: true
+on-arrival: pres = 4
+
+Khayyam rises gracefully from his seat, his grey wig adding an air of wisdom to his demeanor. With a contemplative gaze, he addresses the assembled court.
+
+"I am honored by your choice," he says. "Let us proceed with the trial."
+
+Turning his attention to you, he gestures towards the manuscripts laid out before them. "You have the right to defend yourself," he says, his tone measured yet firm. "Review the evidence put forth by each poet against you, and consider your response carefully."
+
+With a nod of reassurance, Khayyam returns to his seat, prepared to oversee the trial with wisdom and impartiality.
+
+- #evidence
+
+#######################################################################################
+
+# evi-1 - Sappho's evidence
+@evi-1
+title: Sappho's evidence
+subtitle: To be reviewed
+unavailable-subtitle: Refuted
+new-page: true
+tags: evidence
+on-arrival: ref = 1; refn += 1
+choose-if: {! return (Q.refs[1] == 0); !}
+
+Sappho retrieves her evidence—an ancient scroll—and unfurls it. "Members of the court," she begins, "I present to you my beloved *Ode to Aphrodite*, my poetry that has long been celebrated for its beauty and grace."
+
+She points to a passage on the scroll. "Here, in the very heart of my ode, I speak of the eternal flame of love, the fiery embrace of passion. Imagine my dismay when I found echoes of these very thoughts in the poetry of the accused!"
+
+"You claim innocence," she continues, "But how can I ignore the striking similarities between your verses and my own? Is this by chance, or have you stolen the essence of my art for your own gain?"
+
+Sappho lowers her scroll and looks at you with disappointment. "I ask the court to consider the evidence presented and render a verdict preserving the sanctity of artistic integrity!"
+
+- @def-1: Refute Sappho's evidence
+
+#######################################################################################
+
+# def-1 - Bashō's defence against Sappho's evidence
+@def-1
+new-page: true
+
+"Honorable members of the court," you begin, "I consider Sappho's *Ode to Aphrodite* a masterpiece of lyrical expression, evidence for the depth of her understanding of the heart."
+
+"Although I have been influenced by the emotions explored in Sappho's ode," you continue, "my verses are creations that have sprouted from my own experiences and observations of the natural world around me."
+
+"I invite the judges to consider both the simplicity and depth of my verse, as well as to recognize the inherent differences in style that set our respective works apart."
+
+- @quest-1: Pose a question to Sappho
+
+#######################################################################################
+
+# quest-1 - Pose a question to Sappho
+@quest-1
+new-page: true
+
+Turning to face Sappho, you address her with a polite bow, "Could I humbly ask, exactly how does your *Ode to Aphrodite* begin? I remember only parts of it, but surely you would recall the very beginning of such an important masterpiece?"
+
+Sappho hesitates as she struggles to recall the exact words. She glances at the ancient scroll and discovers, to her dismay, that the very first word of her ode is missing. She blushes as she realizes she cannot recall the beginning of her own work from memory.
+
+You watch Sappho's discomfort with empathy. With a gentle nod, you acknowledge her struggle, sparing her further embarrassment.
+
+- #nextref: No further questions
+
+#######################################################################################
+
+# evi-2 - Milton's evidence
+@evi-2
+title: Milton's evidence
+subtitle: To be reviewed
+unavailable-subtitle: Refuted
+new-page: true
+tags: evidence
+on-arrival: ref = 2; refn += 1
+choose-if: {! return (Q.refs[2] == 0); !}
+
+Milton retrieves his evidence—a weathered tome—and opens it. "Members of the court," he begins, "I present to you my epic poem *Paradise Lost*, the sacred text that is the culmination of a lifetime of labor in pursuing poetic mastery."
+
+"Behold!" Milton cries, dramatically pointing out passages in the tome, "The themes of sin and redemption, human folly, and divine providence!"
+
+"I was shocked beyond measure," Milton continues, "when I discovered these very themes in the works of the accused!"
+
+"I challenge you to prove me wrong," Milton finishes, "refute *this* damning evidence if you are able!"
+
+- @def-2: Refute Milton's evidence
+
+#######################################################################################
+
+# def-2 - Bashō's defence against Milton's evidence
+@def-2
+new-page: true
+
+"Honorable members of the court," you begin, "I hold the utmost respect for Milton's magnum opus *Paradise Lost*, and I have no intention to replicate its splendor."
+
+"We may share themes at times," you continue, "but my simple verses draw inspiration from the natural world rather than Milton's grandiose writings of epic poetry."
+
+"My verses are but whispers on the boundaries of hearing, echoes of the fleeting moments that tie us to the world around us, and I beseech the judges to recognize the inherent differences in style that set our respective works apart."
+
+- @quest-2: Pose a question to Milton
+
+#######################################################################################
+
+# quest-2 - Pose a question to Milton
+@quest-2
+new-page: true
+
+You turn to face Milton. With a polite bow, you address him, "Could I humbly ask, exactly how many lines of epic verse does your *Paradise Lost* contain? Surely you can recall the number of lines you put into your masterpiece?"
+
+Milton replies, "Why, it consists of ten books, each containing numerous lines of epic verse."
+
+"Forgive me, but I was referring to the number of lines, not the number of books," you respond.
+
+Milton, clearly flustered, attempts to recall its precise count.
+
+You watch Milton's discomfort with empathy. With a gentle nod, you acknowledge his struggle, sparing him further embarrassment.
+
+- #nextref: No further questions
+
+#######################################################################################
+
+# evi-3 - Tagore's evidence
+@evi-3
+title: Tagore's evidence
+subtitle: To be reviewed
+unavailable-subtitle: Refuted
+new-page: true
+tags: evidence
+on-arrival: ref = 3; refn += 1
+choose-if: {! return (Q.refs[3] == 0); !}
+
+Tagore retrieves his evidence—a worn book—and opens it. "Members of the court," he begins, "I present to you *Gitanjali*, a collection of my spiritual verses, loved by readers across the globe."
+
+"Imagine my astonishment when I stumbled upon a striking resemblance between my verses and those presented by the accused," he continues, flipping through the pages and pointing out specific passages. "Do they not echo the sentiment of your verses?"
+
+"I submit that while inspiration may be universal, there exists a fine line between homage and imitation. The verses from the accused seem to borrow heavily from the spiritual depth of *Gitanjali* without proper acknowledgment," Tagore finishes.
+
+- @def-3: Refute Tagore's evidence
+
+#######################################################################################
+
+# def-3 - Bashō's defence against Tagore's evidence
+@def-3
+new-page: true
+
+"Honorable members of the court," you begin, "I admire the beauty and significance of Tagore's *Gitanjali* and hold it in the highest regard."
+
+"I must assert that my verses do not draw inspiration from Tagore's work, but rather from the timeless themes of nature and human experience," you continue. "My personal observations and experiences inspire me to craft my verses."
+
+"I invite the judges to consider both the simplicity and depth of my verse. Any  perceived similarities between our respective works can only be seen as purely coincidental."
+
+- @quest-3: Pose a question to Tagore
+
+#######################################################################################
+
+# quest-3 - Pose a question to Tagore
+@quest-3
+new-page: true
+
+Turning to face Tagore, you address him with a polite bow, "Could I humbly ask, exactly when did you start writing your *Gitanjali*?"
+
+Tagore hesitates as he struggles to recall the exact date. "I started writing my poems somewhere in 1909," he replies, "I was in a period of personal turmoil and spiritual reflection at the time. I published them as a collection in 1910."
+
+"I must confess," you say, "I find it rather amusing that Tagore accuses me of plagiarism when time itself would stand as a witness in my defense."
+
+"After all, I departed this world long ago before Tagore put down his immortal words on paper, so I might accuse him of plagiarism instead."
+
+You watch Tagore's discomfort with empathy. With a gentle nod, you acknowledge his struggle, sparing him further embarrassment.
+
+- #nextref: No further questions
+
+#######################################################################################
+
+# evi-4 - Khayyam's evidence
+@evi-4
+title: Khayyam's evidence
+subtitle: To be reviewed
+unavailable-subtitle: Refuted
+new-page: true
+tags: evidence
+on-arrival: ref = 4; refn += 1
+choose-if: {! return (Q.refs[4] == 0); !}
+
+Khayyam retrieves his evidence—a parchment scroll—and unfurls it. "Members of the court," he begins, "I present to you my *Rubaiyat of Omar Khayyam*, the famous collection of my quatrains.
+
+"Here, and here," Khayyam points out phrases on the scroll, "The resemblance between my poetic expressions and the works of the accused is unmistakable."
+
+"I was at a loss for words to express my feelings when I discovered the works of the accused were mirroring the sentiment, the structure, and even the language of my own verses," Khayyam concludes.
+
+With a satisfied nod, Khayyam returns to his seat, confident in the validity of his claims.
+
+- @def-4: Refute Khayyam's evidence
+
+#######################################################################################
+
+# def-4 - Bashō's defence against Khayyam's evidence
+@def-4
+new-page: true
+
+"Honorable members of the court," you begin, "The wisdom Khayyam has put in his *Rubaiyat of Omar Khayyam* is inspiring."
+
+"However, I must assert that the similarities between my verses and his quatrains are a reflection of the universal themes that surface in the art of poetry."
+
+"While there may be shared ideas, we all bring unique perspectives and voices to our compositions," you continue, "and it is natural for themes to recur across different works, as they speak of fundamental aspects of human experiences."
+
+- @quest-4: Pose a question to Khayyam
+
+#######################################################################################
+
+# quest-4 - Pose a question to Khayyam
+@quest-4
+new-page: true
+
+Turning to face Khayyam, you address him with a polite bow, "Could I humbly ask, exactly why do you choose to express your poetic genius through quatrains?"
+
+"The quatrain form, with its concise structure and rhythmic patterns, allows me to put profound ideas within a small space," Khayyam answers. "I see each quatrain as a small universe, embedding within it a multitude of meanings."
+
+"Indeed," you reply, "Our forms are as important as our words. But while you favor the quatrain with its four lines and rhythmic patterns, I favor the simplicity of my form—three lines, unrhymed, capturing a single moment in time."
+
+"I must confess our forms differ and I withdraw my claim against you," Khayyam concludes, slightly flustered.
+
+You watch Khayyam's discomfort with empathy. With a gentle nod, you acknowledge his struggle, sparing him further embarrassment.
+
+- #nextref: No further questions
+
+#######################################################################################
+
+# ref-1 - refuted evidence of one poet
+@ref-1
+title: Continue
+new-page: true
+tags: nextref
+on-arrival: {! Q.pname = Q.names[Q.pres]; Q.ppron = Q.prons[Q.pres]; Q.pposs = Q.posss[Q.pres]; Q.refs[Q.ref] = 1; !}
+view-if: refn = 1
+
+[+ pname +] nods solemnly, acknowledging your response. "Your defense is compelling, and your arguments hold weight. It is crucial that we carefully consider all evidence before us. Let us proceed with open minds and a commitment to justice. May truth prevail."
+
+- #evidence
+
+#######################################################################################
+
+# ref-2 - refuted evidence of two poets
+@ref-2
+title: Continue
+new-page: true
+tags: nextref
+on-arrival: {! Q.refs[Q.ref] = 1; Q.aname = (Q.pres == Q.ref)?"myself":Q.names[Q.ref]; !}
+view-if: refn = 2
+
+[+ pname +] nods solemnly, acknowledging your response. "Your defense stands strong, casting doubt on the accusations presented by [+ aname +]. Let us continue our deliberations with careful consideration and impartiality. May truth guide us towards a just resolution."
+
+- #evidence
+
+#######################################################################################
+
+# ref-3 - refuted evidence of three poets
+@ref-3
+title: Continue
+new-page: true
+tags: nextref
+on-arrival: {! Q.refs[Q.ref] = 1; Q.aname = (Q.pres == Q.ref)?"myself":Q.names[Q.ref]; !}
+view-if: refn = 3
+
+[+ pname +] nods solemnly, acknowledging your response. "Your defense is compelling, casting doubt on the evidence presented by [+ aname +]. Let us proceed with meticulous scrutiny and impartiality. May truth guide us as we seek justice in these proceedings."
+
+- #evidence
+
+#######################################################################################
+
+# ref-4 - refuted evidence of all poets
+@ref-4
+title: Continue
+new-page: true
+tags: nextref
+on-arrival: {! Q.refs[Q.ref] = 1; Q.anti = 1; !}
+view-if: refn = 4
+
+[+ pname +] nods solemnly, acknowledging your response. "Your defense has withstood the scrutiny of all accusations laid before you, casting doubt upon the evidence presented by each of us. Let us commend your resilience and commitment to truth."
+
+"As we near the conclusion of these proceedings, I invite you, esteemed accused, to present your best poetry, the culmination of your creative endeavors. May your poetry serve as a testament to your character and integrity."
+
+- #clock
+
+#######################################################################################
+
+# clock-1 - Sappho starting the clock
+@clock-1
+title: Continue
+new-page: true
+tags: clock
+view-if: pres = 1
+
+"You will have one hour to present your finest poetry," Sappho announces. With a graceful gesture, Sappho unveils a beautifully crafted sundial, its golden hues shimmering in the sunlight.
+
+Sappho adjusts the sundial, ensuring its alignment with the rays of sunlight. As the shadow shifts, marking the beginning of the hour, she nods solemnly. "The hour begins now," she declares.
+
+- @anti-1
+
+#######################################################################################
+
+# clock-2 - Milton starting the clock
+@clock-2
+title: Continue
+new-page: true
+tags: clock
+view-if: pres = 2
+
+"You have been allotted one hour to present your most compelling poetry," Milton announces. With a purposeful gesture, Milton unveils a meticulously crafted mechanical clock.
+
+Milton adjusts the hands of the clock, setting them in motion to mark the beginning of the hour. "The hour commences now," Milton declares. "Present your poetry with eloquence and depth."
+
+- @anti-1
+
+#######################################################################################
+
+# clock-3 - Tagore starting the clock
+@clock-3
+title: Continue
+new-page: true
+tags: clock
+view-if: pres = 3
+
+"You have one hour to present your most profound poetry," Tagore announces. With a graceful gesture, Tagore reveals a beautifully crafted water clock.
+
+Tagore adjusts the water clock, allowing the water to begin its journey. "The hour is now in motion," Tagore declares, "May you use it to express your poetry with depth and sincerity."
+
+- @anti-1
+
+#######################################################################################
+
+# clock-4 - Khayyam starting the clock
+@clock-4
+title: Continue
+new-page: true
+tags: clock
+view-if: pres = 4
+
+"You have one hour to present your most exquisite poetry," Khayyam announces. With a graceful motion, Khayyam reveals an intricately crafted astrolabe.
+
+Khayyam adjusts the astrolabe, aligning its celestial indicators to mark the hour. "The hour is now in motion," Khayyam declares, "May you utilize it to impart your poetry with depth and resonance."
+
+- @anti-1
+
+#######################################################################################
+
+# anti-1 - Sappho expresses her anxiety
+@anti-1
+title: Continue
+
+Sappho smiles at you. "Let your poetry be a melody that echoes across the ages. Let our hearts beat in unison with your stanzas. Paint upon the canvas of eternity with the colors of your verse."
+
+- @anti-2
+
+#######################################################################################
+
+# anti-2 - Milton expresses his anxiety
+@anti-2
+title: Continue
+
+Milton leans forward. "We've all been anticipating this moment. Do not disappoint us now. Let your words weave a tapestry of imagery and meaning that will resonate through the ages."
+
+- @anti-3
+
+#######################################################################################
+
+# anti-3 - Tagore expresses his anxiety
+@anti-3
+title: Continue
+
+Tagore smiles gently. "Let your words flow like a gold miner's stream, carrying the nuggets of your wisdom. Touch the depths of our souls and leave an indelible mark on our hearts."
+
+- @anti-4
+
+#######################################################################################
+
+# anti-4 - Khayyam expresses his anxiety
+@anti-4
+title: Continue
+
+Khayyam raises his glass of wine. "May your words be like wine, intoxicating us with their beauty and wisdom. Let your poetry paint upon the canvas of eternity with its brushstrokes."
+
+- @anti-0
+
+#######################################################################################
+
+# anti-0 - Bashō expresses his anxiety
+@anti-0
+new-page: true
+title: Continue
+
+Now the moment has arrived to show your artistry; now is the chance to become a member of the Society. With a trembling hand, you unwrap your traveling pack and retrieve your sealed roll of silk fabric. Breaking the seal, you clear your throat and begin to recite...
+
+- @haiku-1
+
+#######################################################################################
+
+# haiku-1 - Presenting the first line of the haiku
+@haiku-1
+title: Continue
+new-page: true
+
+Now the moment has arrived to show your artistry; now is the chance to become a member of the Society. With a trembling hand, you unwrap your traveling pack and retrieve your sealed roll of silk fabric. Breaking the seal, you clear your throat and begin to recite...
+
+{!
+<table style="width:100%;font-weight:bold"><tr>
+<td style="width:25%;text-align:left">古池や</td>
+<td style="width:40%;text-align:left">furu ike ya</td>
+<td style="width:35%;text-align:left">an ancient pond</td>
+</tr><tr>
+<td style="width:25%;text-align:left"><br/></td>
+<td style="width:40%;text-align:left"></td>
+<td style="width:35%;text-align:left"></td>
+</tr><tr>
+<td style="width:25%;text-align:left"><br/></td>
+<td style="width:40%;text-align:left"></td>
+<td style="width:35%;text-align:left"></td>
+</tr></table>
+!}
+
+- @haiku-2
+
+#######################################################################################
+
+# haiku-2 - Presenting the second line of the haiku
+@haiku-2
+title: Continue
+new-page: true
+
+Now the moment has arrived to show your artistry; now is the chance to become a member of the Society. With a trembling hand, you unwrap your traveling pack and retrieve your sealed roll of silk fabric. Breaking the seal, you clear your throat and begin to recite...
+
+{!
+<table style="width:100%;font-weight:bold"><tr>
+<td style="width:25%;text-align:left">古池や</td>
+<td style="width:40%;text-align:left">furu ike ya</td>
+<td style="width:35%;text-align:left">an ancient pond</td>
+</tr><tr>
+<td style="width:25%;text-align:left">蛙飛びこむ</td>
+<td style="width:40%;text-align:left">kawazu tobikomu</td>
+<td style="width:35%;text-align:left">a frog jumps in</td>
+</tr><tr>
+<td style="width:25%;text-align:left"><br/></td>
+<td style="width:40%;text-align:left"></td>
+<td style="width:35%;text-align:left"></td>
+</tr></table>
+!}
+
+- @haiku-3
+
+#######################################################################################
+
+# haiku-3 - Presenting the third line of the haiku
+@haiku-3
+title: Continue
+new-page: true
+
+Now the moment has arrived to show your artistry; now is the chance to become a member of the Society. With a trembling hand, you unwrap your traveling pack and retrieve your sealed roll of silk fabric. Breaking the seal, you clear your throat and begin to recite...
+
+{!
+<table style="width:100%;font-weight:bold"><tr>
+<td style="width:25%;text-align:left">古池や</td>
+<td style="width:40%;text-align:left">furu ike ya</td>
+<td style="width:35%;text-align:left">an ancient pond</td>
+</tr><tr>
+<td style="width:25%;text-align:left">蛙飛びこむ</td>
+<td style="width:40%;text-align:left">kawazu tobikomu</td>
+<td style="width:35%;text-align:left">a frog jumps in</td>
+</tr><tr>
+<td style="width:25%;text-align:left">水の音</td>
+<td style="width:40%;text-align:left">mizu no oto</td>
+<td style="width:35%;text-align:left">the splash of water</td>
+</tr></table>
+!}
+
+- @first
+
+#######################################################################################
+
+# first - first impression of the judges
+@first
+title: Continue
+new-page: false
+
+Sappho raises an eyebrow, her lips twitching into a wry smile as she considers the brevity of your offering.
+
+Milton furrows his brow thoughtfully. "A drop of poetry distilled from nature," he muses.
+
+Tagore smiles gently. "In the silence of the pond, you speak volumes," he remarks softly.
+
+Khayyam chuckles softly. "A fleeting moment captured in verse," he muses, taking a sip from his glass of wine.
+
+[+ pname +] addresses the court, "Let us use the remainder of the hour to pass judgment on the qualities of the verse presented to us, and help us decide, in placing our votes for admission to the Society."
+
+- @reviews
+
+#######################################################################################
+
+# reviews - Reviews by all poets
+@reviews
+title: Continue
+new-page: true
+on-departure: ma = na;
+on-arrival: {!
+    Q.cmsg = "";
+    Q.amsg = "";
+    Q.dmsg = "";
+    var c = Q.c;
+    var a = Q.ca[c];
+    var d = Q.ad[a];
+    if (a != 0) { // remove fighting from context
+        Q.ca[c] = 0;
+        Q.ac[a] = 0;
+        Q.ad[a] = 0;
+        Q.da[d] = 0;
+        Q.na -= 1;
+        if (Q.f == 0) {
+            Q.cmsg = Q.names[c] + " dropped " + Q.posss[c] + " support for you.";
+        }
+    }
+    if (Q.f != 0) { // poets fighting
+        a = Q.a;
+        c = Q.ac[a];
+        d = Q.ad[a];
+        if (c != 0) { // remove fighting from accuser
+            Q.ca[c] = 0;
+            Q.ac[a] = 0;
+            Q.ad[a] = 0;
+            Q.da[d] = 0;
+            Q.na -= 1;
+            Q.sub[c] = "View";
+            Q.amsg = Q.names[c] + " dropped " + Q.posss[c] + " support for you.";
+        }
+        d = Q.d;
+        a = Q.da[d];
+        c = Q.ac[a];
+        if (a != 0) { // remove fighting from defender
+            Q.ca[c] = 0;
+            Q.ac[a] = 0;
+            Q.ad[a] = 0;
+            Q.da[d] = 0;
+            Q.na -= 1;
+            Q.sub[c] = "View";
+            Q.dmsg = Q.names[c] + " dropped " + Q.posss[c] + " support for you.";
+        }
+        c = Q.c;
+        a = Q.a;
+        d = Q.d;
+        Q.ca[c] = a;
+        Q.ac[a] = c;
+        Q.ad[a] = d;
+        Q.da[d] = a;
+        Q.na += 1;
+        Q.sub[c] = Q.names[a] + " is accusing " + Q.names[d] + ". " + Q.names[c] + " will support you.";
+    } else if (Q.c != 0) {
+        Q.sub[c] = Q.names[c] + " will not support you.";
+    }
+    Q.sub1 = Q.sub[1];
+    Q.sub2 = Q.sub[2];
+    Q.sub3 = Q.sub[3];
+    Q.sub4 = Q.sub[4];
+    Q.h = Q.hour[Q.na];
+    Q.t = Q.timer[Q.pres];
+    if (Q.na < Q.ma) {
+        Q.comm = (Q.comm + 1) & 3;
+        if (Q.comm == Q.pres - 1) {
+            Q.comm = (Q.comm + 1) & 3;
+        }
+        Q.cname = Q.names[Q.comm + 1];
+        Q.reason = (Q.reason + 1) & 3;
+        Q.rmsg = Q.reasons[Q.pres][Q.reason];
+    }
+    Q.vmsg = Q.votes[4 - Q.na];
+!}
+go-to: @chaos if na = 4
+
+"May I remind you all," [+ pname +] says, "that voting for membership of the Society must be unanimous. Let each of us evaluate the poetry presented to us, and give our prospective member the criticism he deserves."
+
+[? if cmsg : [+ cmsg +] ?]
+
+[? if amsg : [+ amsg +] ?]
+
+[? if dmsg : [+ dmsg +] ?]
+
+[? if na < ma: Reality shifts, and the [+ t +] reverts back in time, prompting [+ cname +] to quip, "[+ rmsg +]?" ?]
+
+[? if c != 0: "[+ h +]," [+ pname +] says, glancing at the [+ t +]. "You will need [+ vmsg +] to become a member of the Society." ?]
+
+- #critic
+
+#######################################################################################
+
+@critic1
+title: Sappho's criticism
+subtitle: [+ sub1 +]
+new-page: true
+tags: critic
+on-arrival: c = 1;
+
+"While your poem is certainly evocative," Sappho responds, "I cannot help but feel a desire for deeper emotional currents. In your poem, I sense a detachment, a reluctance to fully engage with the emotions of the scene."
+
+"In my own work, I always strive to make the reader feel as though they are experiencing the moment alongside me," she continues, "While your poem captures the beauty of nature, it lacks the emotional depth I believe true poetry should possess."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **heartbeats echo**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic1
+
+#######################################################################################
+
+@critic2
+title: Milton's criticism
+subtitle: [+ sub2 +]
+new-page: true
+tags: critic
+on-arrival: c = 2;
+
+"With due respect for your craftsmanship, I find your poem lacking in moral and spiritual elements," Milton responds, "While your poem is certainly evocative, I feel it falls short of the ideals that poetry should aspire to."
+
+"In my own work, I always strive to imbue my verses with moral and spiritual significance," he continues, "While your poem captures a moment of natural beauty, it fails to offer any meaningful insights into the eternal struggle for moral and spiritual redemption."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **divine harmony awakes**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic2
+
+#######################################################################################
+
+@critic3
+title: Tagore's criticism
+subtitle: [+ sub3 +]
+new-page: true
+tags: critic
+on-arrival: c = 3;
+
+"While your poem captures a moment of natural beauty, I find it lacking in emotional elements and universal relevance," Tagore responds, "While it offers a view on the beauty of nature, it fails to evoke a deeper sense of longing that true poetry should inspire."
+
+"In my own work, I always seek to explore the bonds between humanity and nature," he continues, "In your poem, I sense a missed opportunity to explore the depths of the human soul and explore the connections that exist between all living beings."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **echoes of longing**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic3
+
+#######################################################################################
+
+@critic4
+title: Khayyam's criticism
+subtitle: [+ sub4 +]
+new-page: true
+tags: critic
+on-arrival: c = 4;
+
+"While your poem captures a moment of natural beauty, I sense a missed opportunity for philosophical inquiry," Khayyam responds, "While it offers a glimpse into the natural world, it lacks the existentional depth I believe true poetry should possess."
+
+"In my own work, I always grappled with the complexities of life, love, and mortality, using poetry as a means to express philosophy," he continues, "In your poem, I find myself searching for deeper explorations of the themes of the human experience."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **echoes of eternity**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic4
+
+#######################################################################################
+
+@critic12
+title: Milton's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic1
+on-arrival: a = 2;
+
+"Dear Sappho," Milton responds, "While your poem dances on the pond with the grace of a swan, I fear it may be a bit too melodramatic for our refined tastes."
+
+"In my humble opinion, a poem should express the beauty of nature with simplicity and clarity, and not stage a grand opera about the ancient pond."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's sigh breaks the silence**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic12
+
+#######################################################################################
+
+@critic13
+title: Tagore's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic1
+on-arrival: a = 3;
+
+"Dear Sappho," Tagore responds, "While your poem dances on the pond with the grace of a butterfly, I fear it may be a bit too dramatic for our refined tastes."
+
+"In my humble opinion, a poem should whisper the secrets of nature, and not stage a grand drama at the pond. It forgets the gentle rhythm of the natural world."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **silence blooms**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic13
+
+#######################################################################################
+
+@critic14
+title: Khayyam's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic1
+on-arrival: a = 4;
+
+"Dear Sappho," Khayyam responds, "While your poem dances on the pond with the grace of a nymph, I fear it may be a bit too melodramatic for our refined tastes."
+
+"In my humble opinion, a poem should whisper the beauty of nature, and not get lost in the drama of heartbeats and echoes. It forgets the simplicity of the frog's leap."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **silent ripples spread**
+
+"Anyone who would like to comment?" [+ pname +] asks.
+
+- #critic14
+
+#######################################################################################
+
+@critic123
+title: Tagore's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic12
+on-arrival: d = 3; f = 1;
+
+"Dear Milton," Tagore responds, "While your poem drifts on the pond with the grace of a lotus, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should dance with the rhythms of nature, not float along," Tagore continues, "Your poem forgets to embrace the vibrant pulse of life."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's laughter echoes**
+
+"Dear Tagore, can you at least try to be a bit more original?", Milton accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic124
+title: Khayyam's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic12
+on-arrival: d = 4; f = 0;
+
+"Dear Milton," Khayyam responds, "While your poem drifts on the pond with the tranquility of a sunset, I fear it may be a bit too serene for our refined tastes."
+
+"In my humble opinion, a poem should evoke the vribant rhythms of nature, not put the reader to sleep," Khayyam continues, "Your poem forgets to ignite the fires of imagination."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **moonlight shatters the silence**
+
+"It seems to me we can improve on the original poem with ease," Sappho comments, "This does not bode well for the expertise of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic132
+title: Milton's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic13
+on-arrival: d = 2; f = 1;
+
+"Dear Tagore," Milton responds, "While your poem drifts on the pond with the grace of a delicate breeze, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should capture the symphony of nature with vitality, not whisper in the echo of silence," Milton continues, "Your poem forgets to embrace the vibrant pulse of life."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **silence shattered by the splash**
+
+"Dear Milton, can you at least try to be a bit more original?", Tagore accuses, "I already used the 'silence' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic134
+title: Khayyam's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic13
+on-arrival: d = 4; f = 0;
+
+"Dear Tagore," Khayyam responds, "While your poem drifts on the pond with the grace of a lotus, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should capture the vibrant richness of nature, not whisper in the echo of silence," Khayyam continues, "Your poem forgets to dance the lively dance of life."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **chaos erupts, then subsides**
+
+"It seems to me we can rewrite the original poem with ease," Sappho comments, "This does not bode well for the chances of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic142
+title: Milton's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic14
+on-arrival: d = 2; f = 0;
+
+"Dear Khayyam," Milton responds, "While your poem drifts on the pond with the tranquility of a meditation, I fear it may be a bit too serene for our refined tastes."
+
+"In my humble opinion, a poem should express nature's beauty with vitality, not lull the reader into a peaceful slumber," Milton continues, "Your poem forgets to stir the waters of imagination."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **cicadas pause, then resume**
+
+"It seems to me we can improve on the original poem with ease," Sappho comments, "This does not bode well for the expertise of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic143
+title: Tagore's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic14
+on-arrival: d = 3; f = 0;
+
+"Dear Khayyam," Tagore responds, "While your poem drifts on the pond with the tranquility of a sunset, I fear it may be a bit too placid for our refined tastes."
+
+"In my humble opinion, a poem should express the rhythms of nature, not lull the reader into a peaceful doze," Tagore continues, "Your poem forgets to ignite the fires of imagination."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **stars shimmer in the wake**
+
+"It seems to me we can rewrite the original poem with ease," Sappho comments, "This does not bode well for the chances of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic21
+title: Sappho's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic2
+on-arrival: a = 1;
+
+"Dear Milton," Sappho responds, "While your poem sings with the grandeur of a celestial choir, I fear it may be a bit too lofty for our refined tastes."
+
+"In my humble opinion, a poem should whisper the secrets of nature's beauty with grace, not trumpet them into the heavens," Sappho continues, "Your poem forgets to embrace the gentle melodies of the pond."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **whispers of stillness stir**
+
+- #critic21
+
+#######################################################################################
+
+@critic23
+title: Tagore's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic2
+on-arrival: a = 3;
+
+"Dear Milton," Tagore responds, "While your poem dances with the grace of a professional dancer, I fear it may be a bit too grand for our refined tastes."
+
+"In my humble opinion, a poem should whisper the secrets of nature's beauty, not thunder them to the heavens," Tagore continues, "Your poem forgets to embrace the gentleness of the pond's tranquil waters."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **the symphony of nature softly stirs**
+
+- #critic23
+
+#######################################################################################
+
+@critic24
+title: Khayyam's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic2
+on-arrival: a = 4;
+
+"Dear Milton," Khayyam responds, "While your poem dances with the grace of celestial bodies, I fear it may be a bit too celestial for our refined tastes."
+
+"In my humble opinion, a poem should reflect the earthly rhythms of life, not soar to the heavens on angelic wings," Khayyam continues, "Your poem forgets to embrace simple beauty of the pond's tranquil waters."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **echoes of nature's melody stir**
+
+- #critic24
+
+#######################################################################################
+
+@critic213
+title: Tagore's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic21
+on-arrival: d = 3; f = 1;
+
+"Dear Sappho," Tagore responds, "While your poem caresses the pond with the softness of a gentle breeze, I fear it may be a bit too gentle for our refined tastes."
+
+"In my humble opinion, a poem should evoke the richness of nature's beauty with vigor, not merely whisper in the stillness," Tagore continues, "Your poem forgets to embrace the vibrant pulse of life."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **silent whispers dance on the water**
+
+"Dear Tagore, can you at least try to be a bit more original?", Sappho accuses, "I already used the 'whispers' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic214
+title: Khayyam's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic21
+on-arrival: d = 4; f = 0;
+
+"Dear Sappho," Khayyam responds, "While your poem dances on the pond with the lightness of a feather, I fear it may be a bit too delicate for our refined tastes."
+
+"In my humble opinion, a poem should evoke the depth and richness of life with vigor, not merely whisper in the stillness," Khayyam continues, "Your poem forgets to embrace the vibrancy of existence."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **echoes of existence**
+
+"It seems to me we can improve on the original poem with ease," Milton comments, "This does not bode well for the expertise of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic231
+title: Sappho's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic23
+on-arrival: d = 1; f = 1;
+
+"Dear Tagore," Sappho responds, "While your poem dances on the pond with the grace of a ballerina, I fear it may be a bit too delicate for our refined tastes."
+
+"In my humble opinion, a poem should capture the heartbeat of nature with fervor, not merely whisper in the serenity," Sappho continues, "Your poem forgets to embrace the liveliness of the frog's leap."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's song bursts forth**
+
+"Dear Sappho, can you at least try to be a bit more original?", Tagore accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic234
+title: Khayyam's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic23
+on-arrival: d = 4; f = 1;
+
+"Dear Tagore," Khayyam responds, "While your poem floats on the pond with the grace of a swan, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should whisper the secrets of nature with depth, not merely embrace the serenity," Khayyam continues, "Your poem forgets to embrace the crescendo of life's melodies."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's symphony erupts**
+
+"Dear Khayyam, can you at least try to be a bit more original?", Tagore accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic241
+title: Sappho's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic24
+on-arrival: d = 1; f = 1;
+
+"Dear Khayyam," Sappho responds, "While your poem dances with the elegance of a gazelle, I fear it may be a bit too serene for our refined tastes."
+
+"In my humble opinion, a poem should capture the spirit of nature with passion, not merely whisper in the stillness," Sappho continues, "Your poem forgets to embrace the energy of the frog's leap."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's rhythm pulses with life**
+
+"Dear Sappho, can you at least try to be a bit more original?", Khayyam accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic243
+title: Tagore's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic24
+on-arrival: d = 3; f = 0;
+
+"Dear Khayyam," Tagore responds, "While your poem floats on the pond with the grace of a swan, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should sing with the symphony of life, not merely whisper in the tranquility," Tagore continues, "Your poem forgets to embrace the energy of the frog's leap."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **the world echoes its joyous dance**
+
+"It seems to me we can change the original poem with ease," Milton comments, "This does not bode well for the originality of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic31
+title: Sappho's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic3
+on-arrival: a = 1;
+
+"Dear Tagore," Sappho responds, "While your poem dives into the depths of emotion with the fervor of a lovesick poet, I fear it may be a bit too melodramatic for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with simplicity and grace, not drown in the depths of longing," Sappho continues, "Your poem forgets to embrace the tranquil beauty of the pond."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's whispers caress the air**
+
+- #critic31
+
+#######################################################################################
+
+@critic32
+title: Milton's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic3
+on-arrival: a = 2;
+
+"Dear Tagore," Milton responds, "While your poem dives into the depths of emotion with the fervor of a lovesick poet, I fear it may be a bit too melodramatic for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with elegance and restraint, not drown in the depths of human emotion," Milton continues, "Your poem forgets to embrace the simplicity of the frog's leap."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's whispers weave**
+
+- #critic32
+
+#######################################################################################
+
+@critic34
+title: Khayyam's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic3
+on-arrival: a = 4;
+
+"Dear Tagore," Khayyam responds, "While your poem dives into the depths of emotion with the fervor of a lovesick poet, I fear it may be a bit too melodramatic for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with subtlety and grace, not drown in the depths of human emotion," Khayyam continues, "Your poem forgets to embrace the quiet simplicity of the frog's leap."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's silence speaks volumes**
+
+- #critic34
+
+#######################################################################################
+
+@critic312
+title: Milton's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic31
+on-arrival: d = 2; f = 1;
+
+"Dear Sappho," Milton responds, "While your poem drifts on the breeze with the lightness of a feather, I fear it may be a bit too airy for our refined tastes."
+
+"In my humble opinion, a poem should capture the profound echoes of nature's beauty, not merely wander in the caress of the wind," Milton continues, "Your poem forgets to ground itzelf in the earthly richness of the pond."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's whispers echo through the stillness**
+
+"Dear Milton, can you at least try to be a bit more original?", Sappho accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic314
+title: Khayyam's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic31
+on-arrival: d = 4; f = 0;
+
+"Dear Sappho," Khayyam responds, "While your poem floats on the pond with the grace of a feather, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should capture the depth of human experience with richness, not merely touch the surface of nature's beauty," Khayyam continues, "Your poem forgets to delve into the depths of longing and desire."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **longing echoes in the stillness**
+
+"It seems to me we can rewrite the original poem with ease," Tagore comments, "This does not bode well for the chances of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic321
+title: Sappho's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic32
+on-arrival: d = 1; f = 1;
+
+"Dear Milton," Sappho responds, "While your poem dances through the meadows of nature with the grace of a butterfly, I fear it may be a bit too flowery for our refined tastes."
+
+"In my humble opinion, a poem should capture the essence of nature with simplicity and subtlety, not get lost in its intricacies," Sappho continues, "Your poem forgets to embrace the simplicity of the frog's leap."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's silence sings**
+
+"Dear Sappho, can you at least try to be a bit more original?", Milton accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic324
+title: Khayyam's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic32
+on-arrival: d = 4; f = 1;
+
+"Dear Milton," Khayyam responds, "While your poem dances through the garden of nature with the grace of a gazelle, I fear it may be a bit too ethereal for our refined tastes."
+
+"In my humble opinion, a poem should capture the essence of nature with simplicity, not float away on the winds of eternity," Khayyam continues, "Your poem forgets to anchor itself in the earthly reality of the frog's leap."
+
+"I would write your poem differently," Khayyam concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's whispers fade**
+
+"Dear Khayyam, can you at least try to be a bit more original?", Milton accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic341
+title: Sappho's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic34
+on-arrival: d = 1; f = 1;
+
+"Dear Khayyam," Sappho responds, "While your poem floats on the pond with the grace of a lotus, I fear it may be a bit too subdued for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with vigor and spirit, not merely whisper in hushed tones," Sappho continues, "Your poem forgets to embrace the pulse of life within the ancient pond."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's chorus bursts forth**
+
+"Dear Sappho, can you at least try to be a bit more original?", Khayyam accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic342
+title: Milton's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic34
+on-arrival: d = 2; f = 1;
+
+"Dear Khayyam," Milton responds, "While your poem floats on the pond with the grace of a swan, I fear it may be a bit too hushed for our refined tastes."
+
+"In my humble opinion, a poem should resonate with the grandeur of nature's beauty, not merely whisper in hushed tones," Milton continues, "Your poem forgets to embrace the majestic symphony of life within the ancient pond."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's song reverberates**
+
+"Dear Milton, can you at least try to be a bit more original?", Khayyam accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic41
+title: Sappho's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic4
+on-arrival: a = 1;
+
+"Dear Khayyam," Sappho responds, "While your poem dances on the pond with the grace of a swan, I fear it may be a bit too philosophical for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with simplicity and clarity, not drift into the depths of eternity," Sappho continues, "Your poem forgets to embrace the everyday magic of the frog's leap."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **ripples dance in delight**
+
+- #critic41
+
+#######################################################################################
+
+@critic42
+title: Milton's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic4
+on-arrival: a = 2;
+
+"Dear Khayyam," Milton responds, "While your poem contemplates the depths of existence like a sage, I fear it may be a bit too ponderous for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with simplicity and clarity, not delve into the abyss of eternity," Milton continues, "Your poem forgets to embrace the ephemeral dance of the frog's leap."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's pulse quickens**
+
+- #critic42
+
+#######################################################################################
+
+@critic43
+title: Tagore's criticism on Khayyam's poem
+subtitle: View
+new-page: true
+tags: critic4
+on-arrival: a = 3;
+
+"Dear Khayyam," Tagore responds, "While your poem contemplates the vastness of eternity like a sage, I fear it may be a bit too cosmic for our refined tastes."
+
+"In my humble opinion, a poem should capture nature's beauty with simplicity and grace, not dive into the depths of infinity," Tagore continues, "Your poem forgets to embrace the melodies of the pond's surface."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **whispers of silence ripple**
+
+- #critic43
+
+#######################################################################################
+
+@critic412
+title: Milton's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic41
+on-arrival: d = 2; f = 1;
+
+"Dear Sappho," Milton responds, "While your poem dances on the pond with the grace of a skipping stone, I fear it may be a bit too frivolous for our refined tastes."
+
+"In my humble opinion, a poem should evoke nature's beauty with depth and resonance, not merely dance in the shallows," Milton continues, "Your poem forgets to delve into the deeper currents of meaning."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **serene ripples spread**
+
+"Dear Milton, can you at least try to be a bit more original?", Sappho accuses, "I already used the 'ripples' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic413
+title: Tagore's criticism on Sappho's poem
+subtitle: View
+new-page: true
+tags: critic41
+on-arrival: d = 3; f = 0;
+
+"Dear Sappho," Tagore responds, "While your poem dances on the pond with the lightness of a feather, I fear it may be a bit too whimsical for our refined tastes."
+
+"In my humble opinion, a poem should reflect nature's beauty with elegance and depth, not merely twirl in the ripples," Tagore continues, "Your poem forgets to plumb the depths of contemplation."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **reflections shimmer in silence**
+
+"It seems to me we can rewrite the original poem with ease," Khayyam comments, "This does not bode well for the chances of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic421
+title: Sappho's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic42
+on-arrival: d = 1; f = 1;
+
+"Dear Milton," Sappho responds, "While your poem rages across the pond like a thunderstorm, I fear it may be a bit too thunderous for our refined tastes."
+
+"In my humble opinion, a poem should whisper the secrets of nature's beauty with gentleness and grace, not roar like a tempest," Sappho continues, "Your poem forgets to embrace the gentle waves of the pond."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's sigh brushes the stillness**
+
+"Dear Sappho, can you at least try to be a bit more original?", Milton accuses, "I already used the 'nature' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic423
+title: Tagore's criticism on Milton's poem
+subtitle: View
+new-page: true
+tags: critic42
+on-arrival: d = 3; f = 0;
+
+"Dear Milton," Tagore responds, "While your poem rumbles with the force of a monsoon, I fear it may be a bit too thunderous for our refined tastes."
+
+"In my humble opinion, a poem should whisper the secrets of nature's beauty with gentleness and grace, not shout like a storm," Tagore continues, "Your poem forgets to embrace the nuances of the pond's tranquility."
+
+"I would write your poem differently," Tagore concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **a gentle ripple kisses the surface**
+
+"It seems to me we can change the original poem with ease," Khayyam comments, "This does not bode well for the originality of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@critic431
+title: Sappho's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic43
+on-arrival: d = 1; f = 1;
+
+"Dear Tagore," Sappho responds, "While your poem floats on the pond with the grace of a lotus, I fear it may be a bit too serene for our refined tastes."
+
+"In my humble opinion, a poem should capture the raw emotion of nature's beauty with passion and vitality, not merely whisper in the silence," Sappho continues, "Your poem forgets to embrace the wild pulse of life."
+
+"I would write your poem differently," Sappho concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **silent whispers give way to the dance**
+
+"Dear Sappho, can you at least try to be a bit more original?", Tagore accuses, "I already used the 'whispers' theme!"
+
+- @reviews
+
+#######################################################################################
+
+@critic432
+title: Milton's criticism on Tagore's poem
+subtitle: View
+new-page: true
+tags: critic43
+on-arrival: d = 2; f = 0;
+
+"Dear Tagore," Milton responds, "While your poem floats on the pond with the grace of a swan, I fear it may be a bit too tranquil for our refined tastes."
+
+"In my humble opinion, a poem should evoke nature's beauty with vigour and resonance, not merely whisper in the silence," Milton continues, "Your poem forgets to embrace the thunderous roar of the poet's voice."
+
+"I would write your poem differently," Milton concludes, "How about this version?"
+
+>> **an ancient pond**
+
+>> **a frog jumps in**
+
+>> **nature's song ripples through the stillness**
+
+"It seems to me we can change the original poem with ease," Khayyam comments, "This does not bode well for the originality of our prospective member."
+
+- @reviews
+
+#######################################################################################
+
+@chaos
+title: Chaos
+new-page: true
+
+"[+ h +]," [+ pname +] observes, and stops the [+ t +]. [+ pname +] attempts to restore order in the courtroom, to no avail, as [+ ppron +] gets pulled into the chaos.
+
+"Milton, if only you would stop stealing my themes, you might spend some time on improving your *Paradise Lost*," Sappho accuses. "As it stands, it lacks emotional intimacy, and you seem to get lost in celestial battles and divine decrees."
+
+"Sappho, you seem to have no qualms about borrowing my themes either," Khayyam accuses. "You talk about emotional intimacy, but the characters in your beloved *Ode to Aphrodite* seem incapable of romance without calling upon the gods."
+
+"Khayyam, you could use some originality as well," Tagore accuses. "Your *Rubaiyat of Omar Khayyam* is filled with recurring motifs of wine and revelry; your worldview would greatly benefit from a broader perspective on the human experience."
+
+"Tagore, you are no saint either; you borrowed my themes as well," Milton accuses. "Your *Gitanjali* could use more intellectual rigor or theological depth instead of bordering on the overly sentimental."
+
+- @lastword
+
+#######################################################################################
+
+@lastword
+title: Continue
+new-page: true
+
+With a commanding yet gentle voice, you address the poets. "Honorable members of the court," you begin, "let us not allow our disagreements to overshadow the purpose of our gathering. We are all here because of our love for poetry, and it is that shared passion that unites us."
+
+"You speak of plagiarism, and I see poets accusing each other over the use of a theme or a single word. Do you realize that all of you were borrowing the first two lines from my haiku, without even changing a single word? It sounds to me like I should accuse this entire court of plagiarism."
+
+"We got carried away," [+ pname +] replies, slightly flustered. "To me, it seems we already reached a conclusion, since none of us voted against you. May I use this occasion to personally welcome you to our esteemed Society?" [+ pname +] bows to you, and the other poets quickly follow suit.
+
+"Welcome to the Dead Poets Society!" shouts someone, and everyone joins in.
+
+"Then there is only one thing left to do," [+ pname +] says, "Who is going to tell Mr. Keating about our newest member?"
+
+- @prof-0: Continue
+
+#######################################################################################
+
+# prof-0 - Consult Bashō's profile
+@prof-0
+new-page: true
+game-over: true
+
+"{!<a href="https://en.wikipedia.org/wiki/Matsuo_Bash%C5%8D" target="_blank">Matsuo Bashō</a>!} (松尾 芭蕉, 1644 – November 28, 1694); born Matsuo Kinsaku (松尾 金作), later known as Matsuo Chūemon Munefusa (松尾 忠右衛門 宗房) was the most famous poet of the Edo period in Japan. During his lifetime, Bashō was recognized for his works in the collaborative haikai no renga form; today, after centuries of commentary, he is recognized as the greatest master of haiku (then called hokku). He is also well known for his travel essays beginning with Records of a Weather-Exposed Skeleton (1684), written after his journey west to Kyoto and Nara. Matsuo Bashō's poetry is internationally renowned, and, in Japan, many of his poems are reproduced on monuments and traditional sites. Although Bashō is famous in the West for his hokku, he himself believed his best work lay in leading and participating in renku. As he himself said, "Many of my followers can write hokku as well as I can. Where I show who I really am is in linking haikai verses."
+
+In early 1686, Bashō composed one of his best-remembered haiku:
+
+> 古池や蛙飛びこむ水の音
+
+> furu ike ya / kawazu tobikomu / mizu no oto
+
+> an ancient pond / a frog jumps in / the splash of water"
+
+Quality: *simplicity and mindfulness*
+
+Virtue: *profound simplicity and humility*
+
+Vice: *tendency towards introspection and solitude*
